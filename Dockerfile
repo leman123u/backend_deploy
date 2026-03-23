@@ -1,11 +1,10 @@
 FROM openjdk:17-jdk-slim
 
-# 2) Builddən çıxan JAR-ı konteynerə kopyala
+WORKDIR /app
+
 ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} /app.jar
+COPY ${JAR_FILE} app.jar
 
-# 3) Port
-EXPOSE 8081
+EXPOSE 8080
 
-# 4) Başlatma komandası
-ENTRYPOINT ["java","-jar","/app.jar"]
+CMD ["sh", "-c", "java -jar app.jar --server.port=${PORT:-8080}"]
