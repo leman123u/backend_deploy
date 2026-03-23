@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+!target/*.jar
+!target/
+!target/spring-0.0.1-SNAPSHOT.jar
